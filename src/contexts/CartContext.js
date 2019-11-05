@@ -1,25 +1,28 @@
-import React, { createContext } from 'react';
-import { useLocalStorage } from '../hooks/useLocalStorage';
+import { createContext } from 'react';
 
 export const CartContext = createContext();
 
-export const CartContextProvider = props => {
-    const [cart, setCart] = useLocalStorage("cartItems", []);
+// import { useLocalStorage } from '../hooks/useLocalStorage';
 
-	const addItem = item => {
-		setCart([...cart, item]);
-    };
+// export const CartContext = createContext();
 
-    const removeItem = itemToRemove => {
-        const filteredCart = cart.filter(cartItem => {
-            return itemToRemove.id !== cartItem.id;
-        })
+// export const CartContextProvider = props => {
+//     const [cart, setCart] = useLocalStorage("cartItems", []);
 
-        setCart(filteredCart);
-    }
-    return (
-        <CartContext.Provider value={{ cart, setCart, addItem, removeItem }}>
-            {props.children}
-        </CartContext.Provider>
-    );
-}
+// 	const addItem = item => {
+// 		setCart([...cart, item]);
+//     };
+
+//     const removeItem = itemToRemove => {
+//         const filteredCart = cart.filter(cartItem => {
+//             return itemToRemove.id !== cartItem.id;
+//         })
+
+//         setCart(filteredCart);
+//     }
+//     return (
+//         <CartContext.Provider value={{ cart, setCart, addItem, removeItem }}>
+//             {props.children}
+//         </CartContext.Provider>
+//     );
+// }
